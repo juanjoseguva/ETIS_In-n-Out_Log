@@ -1,0 +1,39 @@
+<div id="footer">
+    <div id="funFacts" data-array="<%=JSON.stringify(funFacts)%>"></div>
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br>
+    <div id="funFactDisplay">
+    </div>
+    <div id="footerButtons">
+        <div><button class="button" id="funFactButton">Trivia</button></div>
+        <div><form><button class="button" id="burgerLogButton3" type="button">ETIS Log</button></form></div>
+    </div>
+    <div id="ETIS/GUSD-Logo">
+        <img src="/img/GUSDLogo.png" alt="GUSD Logo" width="120">
+        <p>
+            Glendale Unified School District <br>
+            Educational Technology and <br>
+            Information Services<br>
+            2023
+        </p>
+    </div>
+    <script >
+        window.onload = function() {
+            document.getElementById("funFactButton").addEventListener("click", updateFunFact);
+            const funFacts = JSON.parse(document.getElementById('funFacts').dataset.array)
+
+            async function updateFunFact() {
+                const randomIndex = Math.floor((Math.random() * 100) % funFacts.length);
+                const funFact = funFacts[randomIndex];
+                let funFactDisplay = document.getElementById("funFactDisplay");
+                funFactDisplay.innerHTML = `<img src="/img/${funFact.name}" alt="${funFact.alt}" height="200">`;
+                funFactDisplay.innerHTML += `<p>${funFact.text}</p>`
+            }
+        }
+        document.getElementById("burgerLogButton3").addEventListener("click", function () {
+            const url = "/burgerLog";
+            window.open(url, "_blank");
+        });
+    </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<%- include ('./partials/header.ejs')%>
+<div id="update">
+    <form method="get">
+        <%if(isAdmin){%>
+            <button class="button" id="adminButton" formaction="/administrator">ADMIN</button>
+        <%}%>
+    </form>
+    <div id="logger">
+        <form method = "post" action = "/update"  id="updateForm">
+            <h3>Status: </h3>
+            <select id="selectedStatus" name="selectedStatus" required>
+                <option value="in">In 🫡</option>
+                <option value="out" selected>Out ✌️</option>
+                <option value="lunch">Lunch 🍔</option>
+                <option value="break">Break 😎</option>
+                <option value="on-site">On-Site 🤓</option>
+                <option value="sick">Sick 😷</option>
+                <option value="vacation">Vacation 🍹</option>
+            </select>
+            <h3>Location: </h3>
+            <input id="location" name="location">
+            <h3>Return Time: </h3>
+            <input id="returnTime" name="returnTime">
+        </form>
+        <div id="loggerbuttons">
+            <button class="button" form="updateForm" id="signOutButton" formmethod="post" formaction="/signOut">Sign Out</button>
+            <button class="button" form="updateForm" id="updateButton" type="submit">Update</button>
+        </div>
+    </div>
+</div>
+<script>
+    let selectInput = document.getElementById("selectedStatus");
+    selectInput.addEventListener("change", function(){
+        let status = selectInput.value;
+        selectInput.style.backgroundColor = getStatusFlavor(status)[0];
+        selectInput.style.color = getStatusFlavor(status)[1];
+    });
+    function getStatusFlavor(status) {
+        switch (status) {
+            case 'in':
+                return ['lightgreen', 'forestgreen'];
+            case 'out':
+                return ['lightcoral', 'darkred'];
+            case 'lunch':
+                return ['lightsalmon', 'saddlebrown'];
+            case 'break':
+                return ['lightyellow', 'darkgoldenrod'];
+            case 'on-site':
+                return ['lightcyan', 'darkcyan'];
+            case 'sick':
+                return ['purple', 'goldenrod'];
+            case 'vacation':
+                return ['lightcyan', 'deeppink'];
+            default:
+                return ['inherit', 'black'];
+        }
+    }
+    document.getElementById("burgerLogButton").addEventListener("click", function () {
+        // Define the URL for the new window
+        const url = "/burgerLog";
+
+        // Open a new window with the specified URL
+        window.open(url, "_blank");
+    });
+</script>
+<%- include ('./partials/footer.ejs')%>

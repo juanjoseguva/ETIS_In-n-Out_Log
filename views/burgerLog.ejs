@@ -1,0 +1,70 @@
+<%- include ('./partials/header.ejs')%>
+<div id="dashboard">
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Location</th>
+                <th>Return Time</th>
+            </tr>
+        </thead>
+        <tbody>
+        <%for (i=0; i < rows.length; i++){%>
+            <tr>
+                <th class="hoverable" data-tooltip="<%=rows[i].burger%>"><%=rows[i].fName%> <%=rows[i].lName%></th>
+                <th><%=modifyStatus(rows[i].currentStatus)%></th>
+                <th><%=rows[i].currentLocation%></th>
+                <th><%=rows[i].returnTime%></th>
+            </tr>
+        <%}%>
+        </tbody>
+    </table>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let hoverableElements = document.querySelectorAll('.hoverable');
+
+        hoverableElements.forEach(function (element) {
+            element.addEventListener('mouseover', function () {
+                let tooltipMessage = element.getAttribute('data-tooltip');
+                showTooltip(element, tooltipMessage);
+            });
+
+            element.addEventListener('mouseout', function () {
+                hideTooltip();
+            });
+        });
+
+        function showTooltip(element, message) {
+            let tooltip = document.createElement('div');
+            tooltip.className = 'tooltip';
+            tooltip.textContent = message;
+
+            positionTooltip(element, tooltip);
+
+            document.body.appendChild(tooltip);
+
+            window.addEventListener('scroll', function () {
+                positionTooltip(element, tooltip);
+            });
+        }
+
+        function hideTooltip() {
+            let tooltip = document.querySelector('.tooltip');
+            if (tooltip) {
+                tooltip.parentNode.removeChild(tooltip);
+            }
+        }
+
+        function positionTooltip(element, tooltip) {
+            let rect = element.getBoundingClientRect();
+
+            // Adjust the tooltip position based on the scroll position
+            let scrollY = window.scrollY;
+            tooltip.style.top = rect.bottom + scrollY + 'px';
+            tooltip.style.left = rect.left + 'px';
+        }
+    });
+</script>
+<%- include ('./partials/footer.ejs')%>

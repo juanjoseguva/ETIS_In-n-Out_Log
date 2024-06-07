@@ -1,0 +1,33 @@
+{
+  "name": "etisinnout",
+  "version": "1.0.0",
+  "description": "Web App skin for OG ETIS In-n-Out Log",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Juan Gutierrez",
+  "license": "GPL-3.0-or-later",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanjoseguva/ETIS_In-n-Out_Log.git"
+  },
+  "bugs": {
+    "url": "https://github.com/juanjoseguva/ETIS_In-n-Out_Log/issues"
+  },
+  "homepage": "https://github.com/juanjoseguva/ETIS_In-n-Out_Log#readme",
+  "dependencies": {
+    "9": "^0.0.1",
+    "10": "0.0.1",
+    "@google-cloud/local-auth": "^2.1.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "google-auth-library": "^9.2.0",
+    "googleapis": "^105.0.0",
+    "jwt-decode": "^4.0.0",
+    "mysql2": "^3.6.5",
+    "passport-google-one-tap": "^1.0.1"
+  }
+}

@@ -1,0 +1,196 @@
+body {
+    display: grid;
+    grid-template-rows: 30% 40% 30% ;
+    justify-items: center;
+    text-align: center;
+    background-color: darkred;
+    background-repeat: repeat;
+    font-family: 'Agbalumo', sans-serif;
+    color: goldenrod;
+}
+
+#footerButtons {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: 50% 50%;
+    grid-gap: 10px;
+    align-content: center;
+}
+
+.button {
+    background-color: whitesmoke;
+    border-color: yellow;
+    color: darkred;
+    width: 100%;
+    padding: 10px;
+    font-size: 2em;
+    border-radius: 5%;
+    font-family: 'Dela Gothic One', sans-serif;
+    box-sizing: border-box;
+}
+select {
+    background-color: whitesmoke;
+    border-color: yellow;
+    color: red;
+    width: 85%;
+    font-size: 1.5em;
+    border-radius: 5%;
+    font-family: 'Dela Gothic One', sans-serif;
+    text-align-last: center;
+    text-align: center;
+}
+
+option {
+    direction: rtl;
+    text-align: left;
+}
+
+option:checked{
+    text-align: left;
+}
+
+input {
+    background-color: whitesmoke;
+    border-color: yellow;
+    color: darkred;
+    width: 85%;
+    font-size: 1.5em;
+    border-radius: 5%;
+    font-family: 'Dela Gothic One', sans-serif;
+}
+h3 {
+    font-family: 'Dela Gothic One', sans-serif;
+    font-size: 2em;
+}
+
+#ETIS\/GUSD-Logo {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    text-align: start;
+    grid-column-gap: 10px;
+    font-family: 'Kanit', sans-serif;
+}
+
+
+
+#ADMINPAGE {
+    font-family: 'Courier Prime', monospace;
+    display: grid;
+    align-items: start;
+}
+
+#loggerbuttons {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: 50% 50%;
+    grid-gap: 10px;
+    align-content: center;
+}
+
+#adminNav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: 50% 50%;
+    grid-gap: 10px;
+    align-content: center;
+}
+
+#logger form {
+    display:grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 80px;
+    align-items: center;
+    grid-column-gap: 5px;
+    justify-items: center;
+    align-content: center;
+}
+
+#logReportForm {
+    display:grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 80px;
+    align-items: center;
+    grid-column-gap: 15px;
+    grid-row-gap: 0;
+    justify-items: center;
+    align-content: center;
+}
+
+.styled-table {
+    color: black;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: palegoldenrod;
+    color: darkred;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid goldenrod;
+}
+
+.styled-table2 {
+    color: black;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table2 thead tr {
+    background-color: palegoldenrod;
+    color: darkred;
+    text-align: left;
+}
+
+.styled-table2 th,
+.styled-table2 td {
+    padding: 12px 15px;
+}
+
+.styled-table2 tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table2 tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table2 tbody tr:last-of-type {
+    border-bottom: 2px solid goldenrod;
+}
+
+#funFactDisplay {
+    grid-template-columns: 60% 40%;
+}
+
+.tooltip {
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    z-index: 1000;
+}

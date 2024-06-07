@@ -1,0 +1,78 @@
+<%- include ('./partials/header.ejs')%>
+<div id="admin">
+    <div id="ADMINPAGE">
+        Admin: <%=admin[0].fName%> <%=admin[0].lName%><br>
+        <img src="/img/NewTickets.png" alt="Recent activity header" width="100%">
+        <table class="styled-table2">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Location</th>
+                <th>Time</th>
+                <th>IP Address</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%for (i=0; i < rows.length; i++){%>
+            <tr>
+                <th><%=rows[i].fName%> <%=rows[i].lName%></th>
+                <th><%=modifyStatus(rows[i].status)%></th>
+                <th><%=rows[i].location%></th>
+                <th><%=rows[i].timestamp%></th>
+                <th><%=rows[i].ipAddress%></th>
+            </tr>
+            <%}%>
+            </tbody>
+        </table>
+    </div>
+    <div id="logReport">
+        <form id="logReportForm" method="post">
+            <h3>Employee</h3>
+            <h3>Start Date: </h3>
+            <h3>End Date: </h3>
+            <select id="etisUser" name="etisUser" style="width: 210px;">
+                <%for(i=0;i<etisUsers.length;i++){%>
+                <option value="<%=etisUsers[i].googleID%>"><%=etisUsers[i].fName%> <%=etisUsers[i].lName%></option>
+                <%}%>
+            </select>
+            <input type="date" id="startDate" name="startDate" style="width: 160px;">
+            <input type="date" id="endDate" name="endDate" style="width: 160px;">
+        </form><br>
+        <button class="button" type="button" onclick="generateLogReport()">Log Report</button>
+        <%if(report.length !== 0){%>
+        <h3>Report for <%=employee[0].fName%> <%=employee[0].lName%></h3>
+        <table class="styled-table2">
+            <thead>
+            <tr>
+                <th>Status</th>
+                <th>Location</th>
+                <th>Time</th>
+                <th>IP Address</th>
+            </tr>
+            </thead>
+            <tbody>
+            <%for (i=0; i < report.length; i++){%>
+            <tr>
+                <th><%=modifyStatus(report[i].status)%></th>
+                <th><%=report[i].location%></th>
+                <th><%=report[i].timestamp%></th>
+                <th><%=report[i].ipAddress%></th>
+            </tr>
+            <%}%>
+            </tbody>
+        </table>
+        <%}%>
+    </div>
+    <br>
+    <form id="adminNav">
+        <button class="button" id="backButton" formmethod="get" formaction="/update">Back</button>
+        <button class="button" id="signOutButton" formmethod="post" formaction="/signOut">Sign Out</button>
+    </form>
+</div>
+<script>
+    function generateLogReport(){
+        document.getElementById("logReportForm").submit();
+    }
+</script>
+<%- include ('./partials/footer.ejs')%>

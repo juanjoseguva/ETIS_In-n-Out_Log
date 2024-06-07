@@ -1,0 +1,28 @@
+<%- include ('./partials/header.ejs')%>
+<div id="google_btn"></div>
+<div id="g_id_onload"
+     data-client_id="159500847264-jo1ee2bjt8o40ta39gito0cs3k6ocq6o.apps.googleusercontent.com"
+     data-context="signin"
+     data-ux_mode="popup"
+     data-callback = "handleCredentialResponse"
+     data-auto_prompt="false">
+</div>
+<div class="g_id_signin"
+     data-type="standard"
+     data-shape="pill"
+     data-theme="outline"
+     data-text="signin"
+     data-size="large"
+     data-logo_alignment="left">
+</div>
+<form id="sendToken" method="post" action="/">
+    <input id="gJWToken" name="gJWToken" value="" type="hidden" required>
+</form>
+<script>
+    function handleCredentialResponse(response) {
+        document.getElementById("gJWToken").value = response.credential;
+        document.forms.namedItem("sendToken").submit();
+    }
+</script>
+
+<%- include ('./partials/footer.ejs')%>
